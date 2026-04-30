@@ -140,9 +140,13 @@ body {
 
 .avatar-sm,
 .avatar-lg {
-  background: linear-gradient(135deg, #c6d9ff, #eef4ff);
   border-radius: 50%;
   box-shadow: inset 0 8px 18px rgba(255, 255, 255, 0.8);
+  object-fit: cover;
+}
+
+.avatar-img {
+  display: block;
 }
 
 .avatar-sm {
