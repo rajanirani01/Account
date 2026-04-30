@@ -35,7 +35,7 @@
           <button class="icon-btn" aria-label="Settings">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm8.94 3.5a1 1 0 0 0-.87-.66l-1.9-.15a7.65 7.65 0 0 0-.53-1.28l1.1-1.52a1 1 0 0 0-.24-1.4l-1.33-.9a1 1 0 0 0-1.35.2l-1.12 1.4a7.74 7.74 0 0 0-1.45-.86l-.28-1.94A1 1 0 0 0 12.5 3h-1a1 1 0 0 0-.99.84l-.28 1.94a7.74 7.74 0 0 0-1.45.86l-1.12-1.4a1 1 0 0 0-1.35-.2l-1.33.9a1 1 0 0 0-.24 1.4l1.1 1.52c-.18.42-.33.86-.53 1.28l-1.9.15a1 1 0 0 0-.87.66 1 1 0 0 0 .25 1.08l1.62 1.26c-.01.34-.02.68-.02 1.02s.01.68.02 1.02L3.4 14.92a1 1 0 0 0-.25 1.08 1 1 0 0 0 .87.66l1.9.15c.2.42.35.86.53 1.28l-1.1 1.52a1 1 0 0 0 .24 1.4l1.33.9a1 1 0 0 0 1.35-.2l1.12-1.4c.45.22.92.41 1.45.86l.28 1.94A1 1 0 0 0 11.5 21h1a1 1 0 0 0 .99-.84l.28-1.94a7.74 7.74 0 0 0 1.45-.86l1.12 1.4a1 1 0 0 0 1.35.2l1.33-.9a1 1 0 0 0 .24-1.4l-1.1-1.52c.18-.42.33-.86.53-1.28l1.9-.15a1 1 0 0 0 .87-.66 1 1 0 0 0-.25-1.08l-1.62-1.26Zm-8.94 3.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
           </button>
-          <img class="avatar-sm avatar-img" src="avatar.svg" alt="User avatar" />
+          <img id="accountAvatar" class="avatar-sm avatar-img account-trigger" src="avatar.svg" alt="User avatar" />
         </div>
       </header>
 
@@ -257,5 +257,181 @@
       </main>
     </div>
   </div>
+  <div class="modal-overlay" id="loginModal" aria-hidden="true">
+    <div class="login-modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button type="button" class="modal-close" id="closeModal" aria-label="Close login dialog">✕</button>
+      <h2 id="loginTitle">Log in</h2>
+      <div id="loginFields">
+        <div class="login-field">
+          <label for="emailInput">Email</label>
+          <input id="emailInput" type="email" placeholder="Enter your email address" />
+        </div>
+        <div class="login-field">
+          <label for="passwordInput">Password</label>
+          <input id="passwordInput" type="password" placeholder="Enter your password" />
+        </div>
+      </div>
+      <div id="registerFields" class="hidden">
+        <div class="login-field">
+          <label for="registerEmail">Email</label>
+          <input id="registerEmail" type="email" placeholder="Enter your email address" />
+        </div>
+        <div class="login-field">
+          <label for="registerPassword">Password</label>
+          <input id="registerPassword" type="password" placeholder="Enter your password" />
+        </div>
+        <div class="login-field">
+          <label for="confirmPassword">Confirm password</label>
+          <input id="confirmPassword" type="password" placeholder="Enter password again" />
+        </div>
+        <div class="login-field checkbox-field">
+          <label>
+            <input type="checkbox" id="agreeTerms" />
+            <span>I agree <strong>Privacy Policy</strong> <strong>Terms of Service</strong></span>
+          </label>
+        </div>
+      </div>
+      <button id="submitButton" class="login-btn" type="button">Log in</button>
+      <div id="loginActions" class="modal-actions">
+        <a href="#" id="forgotLink" class="forgot-link">Forgot password?</a>
+        <a href="#" id="showRegister" class="register-link">Register</a>
+      </div>
+      <div id="registerActions" class="modal-actions hidden">
+        <span>I have an account,</span>
+        <a href="#" id="showLogin" class="register-link">log in now</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="resetModal" aria-hidden="true">
+    <div class="login-modal" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+      <button type="button" class="modal-back" id="backToLogin" aria-label="Back to login">←</button>
+      <button type="button" class="modal-close" id="closeReset" aria-label="Close reset password dialog">✕</button>
+      <h2 id="resetTitle">Reset password</h2>
+      <div class="login-field">
+        <label for="resetEmail">Email</label>
+        <input id="resetEmail" type="email" placeholder="Enter the email linked to your account" />
+      </div>
+      <div class="login-field verification-field">
+        <label for="verificationCode">Verification Code</label>
+        <div class="verification-input-group">
+          <input id="verificationCode" type="text" placeholder="Enter the verification code in email" />
+          <button type="button" class="send-btn">Send</button>
+        </div>
+      </div>
+      <div class="login-field">
+        <label for="newPassword">Set a new password</label>
+        <input id="newPassword" type="password" placeholder="Enter your new password" />
+      </div>
+      <div class="login-field">
+        <label for="confirmNewPassword">Confirm the password</label>
+        <input id="confirmNewPassword" type="password" placeholder="Enter the new password again" />
+      </div>
+      <button id="resetButton" class="login-btn" type="button">Reset password</button>
+      <div class="reset-help">
+        <p class="help-question">I didn't receive the email verification code, what should I do?</p>
+        <ol class="help-list">
+          <li>The email might be lost due to network connection error. Please resend a verification code or try again later.</li>
+          <li>Please make sure your email address is still in use and check the Spam folder.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    const accountTrigger = document.getElementById('accountAvatar');
+    const loginModal = document.getElementById('loginModal');
+    const resetModal = document.getElementById('resetModal');
+    const closeModal = document.getElementById('closeModal');
+    const closeReset = document.getElementById('closeReset');
+    const backToLogin = document.getElementById('backToLogin');
+    const forgotLink = document.getElementById('forgotLink');
+    const loginFields = document.getElementById('loginFields');
+    const registerFields = document.getElementById('registerFields');
+    const loginActions = document.getElementById('loginActions');
+    const registerActions = document.getElementById('registerActions');
+    const submitButton = document.getElementById('submitButton');
+    const titleText = document.getElementById('loginTitle');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+
+    const openLogin = () => {
+      loginModal.classList.add('active');
+      loginModal.setAttribute('aria-hidden', 'false');
+      switchToLogin();
+    };
+
+    const closeLogin = () => {
+      loginModal.classList.remove('active');
+      loginModal.setAttribute('aria-hidden', 'true');
+    };
+
+    const openReset = () => {
+      loginModal.classList.remove('active');
+      loginModal.setAttribute('aria-hidden', 'true');
+      resetModal.classList.add('active');
+      resetModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeReset2 = () => {
+      resetModal.classList.remove('active');
+      resetModal.setAttribute('aria-hidden', 'true');
+    };
+
+    const backToLoginForm = () => {
+      resetModal.classList.remove('active');
+      resetModal.setAttribute('aria-hidden', 'true');
+      loginModal.classList.add('active');
+      loginModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const switchToRegister = () => {
+      loginFields?.classList.add('hidden');
+      registerFields?.classList.remove('hidden');
+      loginActions?.classList.add('hidden');
+      registerActions?.classList.remove('hidden');
+      titleText.textContent = 'Register';
+      submitButton.textContent = 'Create';
+    };
+
+    const switchToLogin = () => {
+      loginFields?.classList.remove('hidden');
+      registerFields?.classList.add('hidden');
+      loginActions?.classList.remove('hidden');
+      registerActions?.classList.add('hidden');
+      titleText.textContent = 'Log in';
+      submitButton.textContent = 'Log in';
+    };
+
+    accountTrigger?.addEventListener('click', openLogin);
+    closeModal?.addEventListener('click', closeLogin);
+    closeReset?.addEventListener('click', closeReset2);
+    backToLogin?.addEventListener('click', (event) => {
+      event.preventDefault();
+      backToLoginForm();
+    });
+    forgotLink?.addEventListener('click', (event) => {
+      event.preventDefault();
+      openReset();
+    });
+    showRegister?.addEventListener('click', (event) => {
+      event.preventDefault();
+      switchToRegister();
+    });
+    showLogin?.addEventListener('click', (event) => {
+      event.preventDefault();
+      switchToLogin();
+    });
+    loginModal?.addEventListener('click', (event) => {
+      if (event.target === loginModal) closeLogin();
+    });
+    resetModal?.addEventListener('click', (event) => {
+      if (event.target === resetModal) closeReset2();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (loginModal.classList.contains('active')) closeLogin();
+        if (resetModal.classList.contains('active')) closeReset2();
+      }
+    });
+  </script>
 </body>
 </html>
