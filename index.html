@@ -28,10 +28,55 @@
           <a href="#">Growth</a>
         </nav>
         <div class="top-actions">
-          <button class="icon-btn" aria-label="Notifications">
-            <span class="dot"></span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7v4l-1.6 1.6a1 1 0 0 0 .7 1.7h16a1 1 0 0 0 .7-1.7L19 13V9a7 7 0 0 0-7-7Zm0 20a3 3 0 0 0 2.83-2H9.17A3 3 0 0 0 12 22Z"/></svg>
-          </button>
+          <div class="notification-wrapper">
+            <button id="notificationBtn" class="icon-btn" aria-label="Notifications">
+              <span class="dot"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7v4l-1.6 1.6a1 1 0 0 0 .7 1.7h16a1 1 0 0 0 .7-1.7L19 13V9a7 7 0 0 0-7-7Zm0 20a3 3 0 0 0 2.83-2H9.17A3 3 0 0 0 12 22Z"/></svg>
+            </button>
+            <div class="notification-panel" id="notificationPanel" aria-hidden="true">
+              <div class="notification-header">
+                <h3>Notifications</h3>
+                <a href="#" class="mark-read">Mark all as read</a>
+              </div>
+              <div class="notification-controls">
+                <label class="sound-toggle">
+                  <input type="checkbox" checked />
+                  <span>Sound Notifications</span>
+                </label>
+              </div>
+              <div class="notification-list">
+                <div class="notification-item unread">
+                  <div class="notif-avatar">d</div>
+                  <div class="notif-content">
+                    <strong>test: File Import vat-import.csv for table test has been completed</strong>
+                    <small>Today 15:56</small>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <div class="notif-avatar">d</div>
+                  <div class="notif-content">
+                    <strong>test: File Import vat-import.csv for table test has been completed</strong>
+                    <small>Today 15:56</small>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <div class="notif-avatar">d</div>
+                  <div class="notif-content">
+                    <strong>test: File Import vat-import.csv for table test has been completed</strong>
+                    <small>Today 15:56</small>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <div class="notif-avatar">d</div>
+                  <div class="notif-content">
+                    <strong>test: File Import vat-import.csv for table test has been completed</strong>
+                    <small>Today 15:56</small>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="see-more">See more</a>
+            </div>
+          </div>
           <button class="icon-btn" aria-label="Settings">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm8.94 3.5a1 1 0 0 0-.87-.66l-1.9-.15a7.65 7.65 0 0 0-.53-1.28l1.1-1.52a1 1 0 0 0-.24-1.4l-1.33-.9a1 1 0 0 0-1.35.2l-1.12 1.4a7.74 7.74 0 0 0-1.45-.86l-.28-1.94A1 1 0 0 0 12.5 3h-1a1 1 0 0 0-.99.84l-.28 1.94a7.74 7.74 0 0 0-1.45.86l-1.12-1.4a1 1 0 0 0-1.35-.2l-1.33.9a1 1 0 0 0-.24 1.4l1.1 1.52c-.18.42-.33.86-.53 1.28l-1.9.15a1 1 0 0 0-.87.66 1 1 0 0 0 .25 1.08l1.62 1.26c-.01.34-.02.68-.02 1.02s.01.68.02 1.02L3.4 14.92a1 1 0 0 0-.25 1.08 1 1 0 0 0 .87.66l1.9.15c.2.42.35.86.53 1.28l-1.1 1.52a1 1 0 0 0 .24 1.4l1.33.9a1 1 0 0 0 1.35-.2l1.12-1.4c.45.22.92.41 1.45.86l.28 1.94A1 1 0 0 0 11.5 21h1a1 1 0 0 0 .99-.84l.28-1.94a7.74 7.74 0 0 0 1.45-.86l1.12 1.4a1 1 0 0 0 1.35.2l1.33-.9a1 1 0 0 0 .24-1.4l-1.1-1.52c.18-.42.33-.86.53-1.28l1.9-.15a1 1 0 0 0 .87-.66 1 1 0 0 0-.25-1.08l-1.62-1.26Zm-8.94 3.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
           </button>
@@ -430,6 +475,25 @@
       if (event.key === 'Escape') {
         if (loginModal.classList.contains('active')) closeLogin();
         if (resetModal.classList.contains('active')) closeReset2();
+      }
+    });
+
+    const notificationBtn = document.getElementById('notificationBtn');
+    const notificationPanel = document.getElementById('notificationPanel');
+
+    const toggleNotifications = (event) => {
+      event.stopPropagation();
+      const isOpen = notificationPanel.getAttribute('aria-hidden') === 'false';
+      notificationPanel.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+      notificationPanel.classList.toggle('active');
+    };
+
+    notificationBtn?.addEventListener('click', toggleNotifications);
+
+    document.addEventListener('click', (event) => {
+      if (notificationPanel.classList.contains('active') && !event.target.closest('.notification-wrapper')) {
+        notificationPanel.setAttribute('aria-hidden', 'true');
+        notificationPanel.classList.remove('active');
       }
     });
   </script>
