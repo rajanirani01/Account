@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banking Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="banking-page">
+  <div class="laptop-mockup">
+    <div class="laptop-screen">
+      <div class="banking-dashboard">
+        <!-- LEFT SIDEBAR -->
+        <aside class="banking-sidebar">
+          <div class="sidebar-logo">
+            <div class="logo-circle">B</div>
+          </div>
+          
+          <nav class="sidebar-nav">
+            <a href="#" class="nav-item">Accounts</a>
+            <a href="#" class="nav-item">Statements</a>
+            <a href="#" class="nav-item">Transfers</a>
+            <a href="#" class="nav-item">Bill Pay</a>
+            <a href="#" class="nav-item">Debit Cards</a>
+            <a href="#" class="nav-item">User Admin</a>
+            <a href="#" class="nav-item">Lock Box</a>
+            <a href="#" class="nav-item">Reports</a>
+            <a href="#" class="nav-item">Wires</a>
+            <a href="#" class="nav-item">Approvals</a>
+            <a href="#" class="nav-item">Positive Pay</a>
+            <a href="#" class="nav-item">Remote Check</a>
+            <a href="#" class="nav-item">ACH</a>
+            <a href="#" class="nav-item">Saved Report</a>
+          </nav>
+
+          <div class="sidebar-bottom">
+            <a href="#" class="nav-item-bottom">Messages</a>
+            <a href="#" class="nav-item-bottom">Settings</a>
+            <a href="#" class="nav-item-bottom">Log Out</a>
+          </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="banking-main">
+          <!-- TOP HEADER -->
+          <div class="banking-header">
+            <div class="search-box">
+              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              </svg>
+              <input type="text" placeholder="Search Accounts" class="search-input" />
+            </div>
+            <div class="header-actions">
+              <button class="view-btn grid-view" aria-label="Grid view">⊞</button>
+              <button class="view-btn list-view" aria-label="List view">≡</button>
+            </div>
+          </div>
+
+          <!-- CONTENT AREA -->
+          <div class="banking-content">
+            <!-- CHECKING & SAVINGS SECTION -->
+            <section class="dashboard-section">
+              <h2 class="section-title">Checking & Savings</h2>
+              <div class="cards-grid">
+                <!-- Card 1: Free Checking -->
+                <div class="account-card">
+                  <div class="card-accent green-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Free Checking</p>
+                    <p class="card-number">5432 8934 2102</p>
+                    <p class="card-balance-label">Available balance</p>
+                    <p class="card-balance">$32,283.85</p>
+                  </div>
+                </div>
+
+                <!-- Card 2: Free Checking -->
+                <div class="account-card">
+                  <div class="card-accent blue-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Free Checking</p>
+                    <p class="card-number">5432 8934 2102</p>
+                    <p class="card-balance-label">Available balance</p>
+                    <p class="card-balance">$32,283.85</p>
+                  </div>
+                </div>
+
+                <!-- Card 3: Prime Liquid Assets -->
+                <div class="account-card">
+                  <div class="card-accent orange-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Prime Liquid Assets</p>
+                    <p class="card-number">5432 8934 2102</p>
+                    <p class="card-balance-label">Available balance</p>
+                    <p class="card-balance">$500.85</p>
+                  </div>
+                </div>
+
+                <!-- Card 4: Statement Savings -->
+                <div class="account-card">
+                  <div class="card-accent green-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Statement Savings</p>
+                    <p class="card-number">5432 8934 2102</p>
+                    <p class="card-balance-label">Available balance</p>
+                    <p class="card-balance">$500.85</p>
+                  </div>
+                </div>
+
+                <!-- Card 5: Passbook CD -->
+                <div class="account-card">
+                  <div class="card-accent purple-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Passbook CD</p>
+                    <p class="card-number">5432 8934 2102</p>
+                    <p class="card-balance-label">Available balance</p>
+                    <p class="card-balance">-$200.00</p>
+                  </div>
+                </div>
+
+                <!-- Card 6: Passbook CD -->
+                <div class="account-card">
+                  <div class="card-accent orange-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Passbook CD</p>
+                    <p class="card-number">5432 8934 2102</p>
+                    <p class="card-balance-label">Available balance</p>
+                    <p class="card-balance">-$200.00</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- LOANS SECTION -->
+            <section class="dashboard-section">
+              <h2 class="section-title">Loans</h2>
+              <div class="cards-grid">
+                <!-- Loan 1: Flex Equity Line -->
+                <div class="account-card">
+                  <div class="card-accent red-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Flex Equity Line</p>
+                    <p class="card-number">*145-00001</p>
+                    <p class="card-balance-label">Outstanding balance</p>
+                    <p class="card-balance">$32,283.85</p>
+                  </div>
+                </div>
+
+                <!-- Loan 2: Flex Equity Line -->
+                <div class="account-card">
+                  <div class="card-accent teal-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Flex Equity Line</p>
+                    <p class="card-number">*142-00001</p>
+                    <p class="card-balance-label">Outstanding balance</p>
+                    <p class="card-balance">$32,283.85</p>
+                  </div>
+                </div>
+
+                <!-- Loan 3: Auto Loan -->
+                <div class="account-card">
+                  <div class="card-accent blue-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Auto Loan</p>
+                    <p class="card-number">*142-00001</p>
+                    <p class="card-balance-label">Outstanding balance</p>
+                    <p class="card-balance">$500.85</p>
+                  </div>
+                </div>
+
+                <!-- Loan 4: Auto Loan -->
+                <div class="account-card">
+                  <div class="card-accent green-accent"></div>
+                  <div class="card-content">
+                    <p class="card-label">Auto Loan</p>
+                    <p class="card-number">*152-00001</p>
+                    <p class="card-balance-label">Outstanding balance</p>
+                    <p class="card-balance">$500.85</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- LAPTOP BODY -->
+    <div class="laptop-body"></div>
+  </div>
+
+  <script>
+    // Optional: Add interactivity if needed
+    document.querySelectorAll('.nav-item, .nav-item-bottom').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Add navigation logic here if needed
+      });
+    });
+  </script>
+</body>
+</html>
